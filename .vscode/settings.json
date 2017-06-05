@@ -1,0 +1,9 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+    "prettier.singleQuote": true,
+    "prettier.printWidth": 200,
+    "editor.formatOnSave": true,
+    "prettier.tabWidth": 2,
+    "eslint.enable": false,
+    "javascript.implicitProjectConfig.checkJs": false
+}
