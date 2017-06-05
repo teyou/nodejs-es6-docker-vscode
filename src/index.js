@@ -14,5 +14,5 @@ app.use(bodyParser.json()); // for parsing application/json
 app.use('/', routes);
 
 app.listen(port, function() {
-  logger.info(`TeYoU Tempalte starts listening on port ${port}!`);
+  logger.info(`TeYoU Template starts listening on port ${port}!`);
 });
