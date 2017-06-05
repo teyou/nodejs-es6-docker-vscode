@@ -1,0 +1,56 @@
+{
+  "name": "nodejs-es6-docker-vscode",
+  "version": "0.0.1",
+  "description": "nodejs project template (es6 + docker) with VSCode as IDE",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node dist/index.js",
+    "serve:dev": "NODE_ENV=development nodemon  --ignore 'dist/' --exec babel-node --debug=5858 --nolazy src/index.js",
+    "serve:prod": "NODE_ENV=production node dist/index.js",
+    "serve:docker": "npm-run-all -p -r serve:dev build:watch",
+    "build:watch": "rm -rf dist && babel src --out-dir dist --watch --source-maps",
+    "build:once": "rm -rf dist && babel src --out-dir dist --source-maps",
+    "deploy:local": "npm run build:once && zip -r deploy/deploy.$(date '+%Y%m%d-%H%M%S').zip . -x '*.git*' '*node_modules*' '*deploy*' '*test*' '*scripts*' '*.vscode*' '*.DS_STORE*' '*logs*' "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/teyou/nodejs-es6-docker-vscode.git"
+  },
+  "keywords": [
+    "nodejs",
+    "es6",
+    "docker",
+    "vscode",
+    "teyou"
+  ],
+  "author": "pudding.pearl.tea@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/teyou/nodejs-es6-docker-vscode/issues"
+  },
+  "homepage": "https://github.com/teyou/nodejs-es6-docker-vscode#readme",
+
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-plugin-root-import": "^5.1.0",
+    "babel-plugin-transform-object-rest-spread": "^6.23.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
+    "babel-polyfill": "^6.23.0",
+    "babel-preset-env": "^1.5.1",
+    "babel-register": "^6.24.1",
+    "nodemon": "^1.11.0",
+    "npm-run-all": "^4.0.2"
+  },
+  "dependencies": {
+    "axios": "^0.16.1",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.3",
+    "lodash": "^4.17.4",
+    "moment": "^2.18.1",
+    "moment-timezone": "^0.5.13",
+    "mysql": "^2.13.0",
+    "winston": "^2.3.1",
+    "winston-daily-rotate-file": "^1.4.6"
+  }
+}
