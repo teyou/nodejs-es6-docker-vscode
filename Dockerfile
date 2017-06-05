@@ -12,12 +12,4 @@ RUN mv /app/node_modules /node_modules
 
 #COPY . /app
 
-# set your port
-ENV PORT 3000
-ENV PORT 5858
-
-# expose the port to outside world
-EXPOSE  3000
-EXPOSE  5858
-
 CMD ["npm","run","serve:dev"]
